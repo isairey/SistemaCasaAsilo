@@ -75,11 +75,11 @@ La plataforma centraliza información importante como datos médicos, actividade
 ## 🧪 Uso
 # Clonar repositorio
 ```
-git clone https://github.com/tu-usuario/sistema-casa-asilo.git
+git clone https://github.com/isairey/SistemaCasaAsilo.git
 ```
 # Entrar al proyecto
 ```
-cd sistema-casa-asilo
+cd SistemaCasaAsilo
 ```
 # Abrir en navegador
 ```
