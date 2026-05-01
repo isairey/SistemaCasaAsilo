@@ -1,0 +1,17 @@
+/* login.css — estilos específicos para la página de login */
+.login-wrap{max-width:1000px;margin:18px auto;padding:0 12px}
+.big-logo{text-align:center;margin:18px 0}
+.big-logo img{max-width:260px;height:auto;display:inline-block}
+.card-auth{max-width:780px;margin:12px auto;padding:18px}
+
+<<<<<<< HEAD
+.login-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;background-image: url('../../scr/resources/images/fondo1.gif');background-position: center center;background-size: cover;background-repeat:no-repeat;background-attachment:fixed;background-color:var(--admin-bg);}
+=======
+/* Fondo específico para la página de login - asegurar cobertura completa */
+.login-page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;background: url('/casabonsai/scr/resources/images/fondo1.gif') center center / cover no-repeat fixed;}
+>>>>>>> f8bb86c551ffde9d290751c388ec6e8b7868f4ca
+.login-page .card-auth{background: rgba(255,255,255,0.92);}
+
+/* pequeños ajustes de accesibilidad y legibilidad */
+.login-page .brand{font-weight:600;color:var(--admin-text)}
+.login-page .form-label{color:var(--admin-text)}

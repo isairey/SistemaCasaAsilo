@@ -1,0 +1,49 @@
+/* Tabs style for admin area — palette verde */
+.root{
+}
+:root{
+  --admin-bg: #F4F1EA;        /* fondo pastel claro */
+  --admin-tab-bg: #ffffff;    /* barra de pestañas clara */
+  --admin-accent: #7b9b6e;    /* acento verde suave */
+  --admin-text: #1e2d22;      /* texto oscuro */
+  --admin-muted: #45634f;     /* texto atenuado */
+}
+body{background:var(--admin-bg);color:var(--admin-text)}
+.admin-tabs-wrap{background:var(--admin-tab-bg);padding:8px 14px;border-bottom:2px solid rgba(0,0,0,0.06);margin-bottom:18px}
+.admin-tabs{list-style:none;margin:0;padding:0;display:flex;gap:8px;align-items:center}
+.admin-tabs .tab{margin:0}
+.admin-tabs .tab a{display:inline-block;padding:8px 14px;border-radius:8px;color:var(--admin-muted);text-decoration:none;font-weight:700;border:1px solid transparent}
+.admin-tabs .tab.active a{color:#fff;background:var(--admin-accent);box-shadow:0 6px 18px rgba(0,0,0,0.06);border-color:rgba(0,0,0,0.06)}
+.admin-tabs .tab a:hover{color:var(--admin-text);border-color:rgba(0,0,0,0.04);background:rgba(123,155,110,0.06)}
+
+/* make tabs horizontally scrollable on small screens */
+.admin-tabs-wrap{overflow-x:auto}
+.admin-tabs{white-space:nowrap}
+
+/* Override site-wide top band from global styles (disable green strip) */
+body{padding-top:0 !important}
+body::before{display:none !important}
+@media (min-width:900px){
+  body{padding-top:0 !important}
+  body::before{display:none !important}
+}
+
+/* small utility to match screenshot layout: left column form + right listing */
+.admin-two-col{display:flex;gap:20px}
+.admin-left{flex:0 0 420px}
+.admin-right{flex:1}
+
+/* inputs & cards visibility on dark bg */
+.card{background:#fff;border-radius:8px;padding:16px;color:var(--admin-text);box-shadow:0 6px 18px rgba(34,45,34,0.06)}
+.btn{border-radius:6px}
+
+/* keep tabs area compact */
+.admin-tabs-wrap{margin-top:0;padding:10px 14px}
+.admin-tabs{gap:12px}
+.admin-tabs .tab.logout{margin-left:auto}
+.admin-tabs .tab.logout a{color:var(--muted)}
+
+/* brand-strip removed — cleaned up */
+
+/* ensure tabs area and brand strip are not fixed/sticky */
+.admin-tabs-wrap{position:static;top:auto;z-index:auto}

@@ -1,0 +1,93 @@
+<<<<<<< HEAD
+/* admin-min.css — estilo base para panel admin */
+:root{--admin-bg:#dff0df;--admin-text:#222;--admin-accent:#1b5e20;--admin-muted:#6b7d6b}
+/* fondo verde ligeramente más marcado para mejorar presencia visual manteniendo contraste */
+html,body{margin:0;padding:0;font-family:Segoe UI,Arial,Helvetica,sans-serif;background:linear-gradient(180deg,var(--admin-bg) 0%, #ffffff 100%);color:var(--admin-text)}
+.container{width:100%;max-width:none;margin:0;padding:28px 36px}
+
+/* Header / tabs improved layout */
+.admin-tabs-wrap{background:transparent;border-bottom:1px solid rgba(0,0,0,0.04)}
+.admin-tabs-container{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:10px 18px}
+.admin-tabs{list-style:none;margin:0;padding:0;display:flex;gap:12px;align-items:center}
+.admin-tabs .tab a{display:inline-block;padding:8px 12px;border-radius:8px;color:var(--admin-text);text-decoration:none;border:1px solid transparent;font-weight:600}
+.admin-tabs .tab.active a{background:var(--admin-accent);color:#fff;border-color:var(--admin-accent)}
+.admin-tabs-right .logout-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;color:var(--admin-text);text-decoration:none;border:1px solid transparent;background:transparent;transition:all .15s}
+.admin-tabs-right .logout-btn i{color:var(--admin-accent)}
+.admin-tabs-right .logout-btn:hover{color:#d9534f;background:rgba(0,0,0,0.02)}
+
+@media (max-width:600px){
+	.admin-tabs-container{padding:8px 12px}
+	.admin-tabs{gap:8px}
+	.admin-tabs-right .logout-btn{padding:6px 8px}
+}
+=======
+/* admin-min.css — muy sencillo */
+.root{ }
+:root{--admin-bg:#ffffff;--admin-text:#222;--admin-accent:#2f6b3a;--admin-muted:#6b7d6b}
+/* admin-min.css — muy sencillo */
+.root{ }
+:root{--admin-bg:#ffffff;--admin-text:#222;--admin-accent:#2f6b3a;--admin-muted:#6b7d6b}
+html,body{margin:0;padding:0;font-family:Segoe UI,Arial,Helvetica,sans-serif;background:var(--admin-bg);color:var(--admin-text)}
+.container{width:100%;max-width:none;margin:0;padding:28px 36px}
+.admin-tabs-wrap{padding:10px}
+.admin-tabs{list-style:none;margin:0;padding:0;display:flex;gap:8px}
+.admin-tabs .tab a{display:inline-block;padding:6px 10px;border-radius:6px;color:var(--admin-text);text-decoration:none;border:1px solid transparent}
+.admin-tabs .tab.active a{background:var(--admin-accent);color:#fff}
+>>>>>>> f8bb86c551ffde9d290751c388ec6e8b7868f4ca
+.card{background:#fff;border:1px solid #eee;padding:14px;border-radius:8px}
+.btn{padding:6px 10px;border-radius:6px}
+.header-title{text-align:center;margin:18px 0}
+/* desactivar banda superior global si está presente */
+body::before{display:none !important}
+
+/* responsive muy básico */
+@media (max-width:600px){.container{margin:16px 12px}.admin-tabs{flex-wrap:wrap;gap:6px}}
+
+/* Ajustes de color y tipografía para armonizar: quitar el azul por defecto */
+.text-primary{color:var(--admin-accent) !important}
+h1, h2, h3, h4{color:var(--admin-text);margin:0}
+h1.display-4{font-size:2.4rem;font-weight:700}
+a{color:var(--admin-accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.btn-primary{background:var(--admin-accent);border-color:var(--admin-accent);color:#fff}
+.muted-small{color:var(--admin-muted)}
+
+/* Floating create panel + overlay */
+#createOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:999}
+#createPanel.floating{position:fixed;left:24px;top:80px;width:48%;max-width:calc(100% - 48px);max-height:85vh;overflow:auto;border-radius:10px;box-shadow:0 18px 50px rgba(0,0,0,0.25);z-index:1000;transform:translateY(-8px);opacity:0;transition:transform .18s ease,opacity .18s;display:none}
+#createPanel.floating.open{display:block;transform:translateY(0);opacity:1}
+
+@media (max-width:900px){#createPanel.floating{right:12px;left:12px;width:auto;top:70px}}
+
+/* Two-column admin layout */
+.admin-two-col{display:flex;gap:20px;align-items:flex-start}
+/* collapsed by default: left column hides when no panel */
+.admin-left{flex:0 0 0;width:0;max-width:0;overflow:hidden;transition:all .18s ease;padding:0}
+.admin-right{flex:1;min-width:0}
+.admin-two-col.has-create .admin-left{flex:0 0 40%;max-width:40%;min-width:360px;padding:0}
+.admin-two-col.has-create .admin-right{flex:1}
+
+/* When viewport is small, stack columns */
+@media (max-width:900px){
+	.admin-two-col{flex-direction:column}
+	.admin-left{flex:unset;max-width:none;width:100%}
+}
+
+/* Table and cell adjustments */
+.manage{width:100%;border-collapse:collapse}
+.manage th,.manage td{padding:12px 10px;vertical-align:middle}
+.manage thead th{background:transparent;border-bottom:1px solid #eee}
+.manage tbody tr:nth-child(odd){background:#fbfbfb}
+.thumb{max-width:96px;height:auto;border-radius:6px}
+.td-truncate{max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Actions buttons */
+.action-btn-edit{background:#178f6b;color:#fff;border:none;padding:6px 8px;border-radius:6px}
+.action-btn-delete{background:#d9534f;color:#fff;border:none;padding:6px 8px;border-radius:6px}
+
+/* Make create panel look compact inside left column when not floating */
+#createPanel{box-shadow:none;border:1px solid #eee}
+#createPanel.floating{box-shadow:0 18px 50px rgba(0,0,0,0.12)}
+
+/* (Login page styles moved to inc/login.css) */
+

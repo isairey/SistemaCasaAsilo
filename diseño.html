@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Bonsai Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- PALETA DE COLORES ACTUALIZADA --- */
+        :root {
+            /* 1. Verde Oscuro (Para TEXTO e ICONOS - Pasa contraste WCAG) */
+            --primary-green: #14532d;  /* Un verde bosque profundo y elegante */
+            
+            /* 2. Verde Clarito (Para FONDOS decorativos - El toque estético) */
+            --primary-light: #dcfce7;  /* Un verde menta/matcha muy suave */
+            
+            /* 3. Verde Medio (Para bordes o hover) */
+            --primary-medium: #86efac; 
+
+            --text-main: #1f2937;      /* Negro suave */
+            --text-secondary: #4b5563; /* Gris oscuro legible */
+            --bg-body: #f3f4f6;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--bg-white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .brand {
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 800; font-size: 1.2rem;
+            color: var(--primary-green); /* Marca en verde oscuro */
+        }
+        .user-menu { font-size: 0.9rem; color: var(--text-secondary); }
+        .logout { margin-left: 15px; text-decoration: none; color: var(--text-main); font-weight: 600; }
+
+        /* Contenedor */
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+        
+        h1 { font-size: 2rem; margin-bottom: 10px; color: var(--primary-green); }
+        .subtitle { color: var(--text-secondary); margin-bottom: 50px; }
+
+        .section-title {
+            text-align: left; font-size: 0.8rem; text-transform: uppercase;
+            letter-spacing: 1px; color: #6b7280; margin-bottom: 20px; margin-top: 40px;
+            font-weight: 700; border-bottom: 1px solid #ddd; padding-bottom: 10px;
+        }
+
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;
+        }
+
+        /* --- AQUÍ ESTÁ LA MAGIA DEL VERDE CLARITO --- */
+        .card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 16px; /* Bordes más redondeados y modernos */
+            padding: 20px;
+            display: flex; align-items: center; gap: 15px;
+            text-align: left;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-medium);
+        }
+
+        /* Tarjeta Activa: Usamos el verde clarito de fondo muy sutil */
+        .card.active {
+            border: 2px solid var(--primary-green);
+            background-color: #f0fdf4; /* Un verde casi blanco para resaltar */
+        }
+
+        /* Círculo del Icono: Fondo VERDE CLARITO + Icono VERDE OSCURO */
+        .icon-box {
+            width: 55px; height: 55px;
+            background-color: var(--primary-light); /* ¡Aquí está tu verde clarito! */
+            border-radius: 50%; /* Opcional: usa 12px para cuadrado redondeado */
+            display: flex; justify-content: center; align-items: center;
+            color: var(--primary-green); /* Icono oscuro para contraste */
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        /* Cuando la tarjeta está activa, invertimos los colores para que resalte */
+        .card.active .icon-box {
+            background-color: var(--primary-green);
+            color: var(--primary-light); /* Icono clarito sobre fondo oscuro */
+        }
+
+        .card-content h3 { font-size: 1.1rem; margin-bottom: 4px; color: var(--text-main); font-weight: 700; }
+        
+        /* Texto descriptivo en gris oscuro para pasar WAVE */
+        .card-content p { font-size: 0.85rem; color: var(--text-secondary); }
+        
+        .badge { font-weight: bold; color: #9ca3af; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand">
+            <i class="fas fa-leaf"></i> Casa Bonsai Admin
+        </div>
+        <div class="user-menu">
+            Hola, Admin <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Panel de Control</h1>
+        <p class="subtitle">Selecciona un módulo para gestionar la información</p>
+
+        <h2 class="section-title">Gestión de Inventario</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-box-open"></i></div>
+                <div class="card-content">
+                    <h3>Productos</h3>
+                    <p>Ver listado completo <span class="badge">• 0</span></p>
+                </div>
+            </div>
+
+            <div class="card active">
+                <div class="icon-box"><i class="fas fa-tags"></i></div>
+                <div class="card-content">
+                    <h3>Categorías</h3>
+                    <p>Clasificación de ítems</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-layer-group"></i></div>
+                <div class="card-content">
+                    <h3>Asignaciones</h3>
+                    <p>Producto - Categoría</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-truck"></i></div>
+                <div class="card-content">
+                    <h3>Proveedores</h3>
+                    <p>Contactos y datos</p>
+                </div>
+            </div>
+
+            <div class="card" style="opacity: 0.8;">
+                <div class="icon-box" style="background-color: #f0f0f0; color: #999;"><i class="fas fa-dolly"></i></div>
+                <div class="card-content">
+                    <h3>Entradas Inventario</h3>
+                    <p>Registrar entradas / salidas</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Personas y Accesos</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-user-injured"></i></div>
+                <div class="card-content">
+                    <h3>Residentes</h3>
+                    <p>Gestionar expedientes</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-users-cog"></i></div>
+                <div class="card-content">
+                    <h3>Usuarios Sistema</h3>
+                    <p>Administradores y Staff <span class="badge">• 1</span></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                <div class="card-content">
+                    <h3>Roles</h3>
+                    <p>Permisos de acceso</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-user-lock"></i></div>
+                <div class="card-content">
+                    <h3>Asignar Roles</h3>
+                    <p>Usuario - Rol</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Página Web</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-concierge-bell"></i></div>
+                <div class="card-content">
+                    <h3>Servicios</h3>
+                    <p>Oferta comercial <span class="badge">• 0</span></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-comments"></i></div>
+                <div class="card-content">
+                    <h3>Testimonios</h3>
+                    <p>Opiniones de clientes <span class="badge">• 0</span></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                <div class="card-content">
+                    <h3>Mensajes</h3>
+                    <p>Formulario de contacto <span class="badge">• 0</span></p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,92 @@
+/* Admin: Dark purple neon theme (inspired by provided mockup) */
+:root{
+  --admin-bg:#1b0824; /* deep purple */
+  --admin-panel:#2b1238; /* panel card */
+  --admin-card:#3a1846;
+  --accent:#8b3bd6; /* magenta/purple */
+  --accent-2:#39c0ff; /* cyan */
+  --muted:#9a79a8;
+  --neon-green:#1ee37a;
+  --danger:#ff6b6b;
+  --glass: rgba(255,255,255,0.03);
+}
+html,body{height:100%;background:var(--admin-bg);color:#e6dff0;font-family:'Nunito Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;}
+
+/* Topbar / Navbar */
+.navbar, .container-fluid.bg-dark{background:linear-gradient(180deg,var(--admin-panel), #220a2b);border-bottom:1px solid rgba(255,255,255,0.03)}
+.navbar .navbar-brand{color:var(--accent);font-weight:800}
+.navbar .nav-link{color:var(--muted);}
+.navbar .nav-link:hover{color:var(--accent-2)}
+
+/* Panels / Cards */
+.card, .bg-white{background:linear-gradient(180deg,var(--admin-card), #2a1233);color:var(--muted);border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.card h2, .card h3, h1, h4{color:var(--accent);}
+.muted-small{color:var(--muted)}
+
+/* Inputs: neon outlines */
+input.form-control, textarea.form-control, select.form-control{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#f4eafa;border-radius:6px;padding:.5rem .6rem}
+input.form-control:focus, textarea.form-control:focus, select.form-control:focus{outline:none;box-shadow:0 0 12px rgba(139,59,214,0.16);border-color:var(--accent)}
+input::placeholder, textarea::placeholder{color:rgba(255,255,255,0.25)}
+
+/* Buttons with neon outlines */
+.btn-primary{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+.btn-primary:hover{background:rgba(139,59,214,0.08);box-shadow:0 6px 20px rgba(139,59,214,0.12)}
+.btn-success{background:transparent;border:1px solid var(--neon-green);color:var(--neon-green)}
+.btn-success:hover{background:rgba(30,227,122,0.06);box-shadow:0 6px 20px rgba(30,227,122,0.08)}
+.btn-danger{background:transparent;border:1px solid var(--danger);color:var(--danger)}
+.btn-outline-secondary{border-color:rgba(255,255,255,0.06);color:var(--muted)}
+
+/* Action buttons small colorful */
+.btn-outline-warning{border-color:rgba(255,200,80,0.12);color:#ffcc66}
+.btn-outline-info{border-color:rgba(57,192,255,0.12);color:var(--accent-2)}
+
+/* Table and list styles */
+.table-hover tbody tr:hover{background:rgba(255,255,255,0.02)}
+.table thead th{color:var(--accent-2);border-bottom:1px solid rgba(255,255,255,0.04)}
+.td-truncate{color:#efe6ff}
+
+/* Thumbs and images */
+.thumb{border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));}
+
+/* Inputs layout styling as in mockup */
+.admin-topbar h3{color:var(--accent);}
+
+/* Scrollbar custom for the big list area */
+.dash .card{overflow:visible}
+.card .table-responsive::-webkit-scrollbar, .card::-webkit-scrollbar{height:10px;width:10px}
+.card .table-responsive::-webkit-scrollbar-thumb, .card::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--accent-2),var(--accent));border-radius:8px}
+
+/* Neon outlines for small control buttons */
+.toolbar .btn{border-radius:6px}
+
+/* Make forms and controls more spacious */
+.form-control{background:transparent}
+
+/* Accent headlines */
+.display-4{color:var(--accent-2)}
+
+/* Small responsive tweaks */
+@media (max-width:800px){
+  .navbar .d-none.d-lg-block{display:none!important}
+  .card{padding:12px}
+}
+
+/* Ensure links are visible */
+a{color:var(--accent-2)}
+
+/* Utilities used in admin pages */
+.btn-buy{background:transparent;border:1px solid var(--accent-2);color:var(--accent-2);padding:.5rem .8rem;border-radius:6px}
+
+/* Make large textarea/list background match mockup */
+.dash .card > .muted-list{background:rgba(255,255,255,0.02);padding:12px;border-radius:6px;color:var(--muted);height:320px;overflow:auto}
+
+/* Forms left column box style from screenshot */
+.login-wrap, .left-form-area{background:transparent}
+
+/* Small utility for neon icon box */
+.logo-wrap{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.05));border-radius:8px;padding:6px}
+
+/* make links in list-group visible */
+.list-group-item{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+
+/* end of admin theme */

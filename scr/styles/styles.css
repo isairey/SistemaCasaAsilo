@@ -1,0 +1,594 @@
+/* Simple, literal CSS for hero + slider
+   Keep it short and readable. No variables, no duplicated blocks.
+*/
+*{box-sizing:border-box}
+html,body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7fbf7;color:#222;font-size:16px}
+
+:root{
+  --color-primary: #6A8A5C; /* brand green (navbar, primary buttons) */
+  --color-primary-dark: #13592e; /* darker variant for hovers and accents */
+  --color-accent: #138A3E; /* legacy accent */
+    --color-bg: #F4F1EA; /* pastel background requested */
+  --color-surface: #ffffff;
+  --color-text: #222222;
+  --color-muted: #6b7d6b;
+  --color-cta-contrast: #ffffff;
+}
+img{max-width:100%;height:auto;display:block}
+
+/* container */
+.container{max-width:1200px;margin:32px auto;padding:0 16px}
+
+/* navbar improved (no Bootstrap required) */
+.navbar{background:#6A8A5C;color:#fff}
+.navbar .container-fluid{max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.navbar-brand{color:#fff;text-decoration:none;font-weight:800;font-size:24px;display:flex;align-items:center;gap:12px}
+.navbar-logo{width:52px;height:52px;object-fit:contain;border-radius:8px}
+.brand-text{display:inline-block}
+.navbar a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+
+/* nav list reset and layout */
+.navbar-nav{list-style:none;margin:0;padding:0;display:flex;gap:22px;align-items:center}
+.navbar-nav .nav-item{margin:0}
+.navbar-nav .nav-link{color:inherit;padding:8px 10px;border-radius:8px}
+.navbar-nav .nav-link:hover,.navbar-nav .nav-link:focus{background:rgba(255,255,255,0.06);outline:none}
+
+/* hide Bootstrap toggler if present (we don't use JS here) */
+.navbar-toggler{display:none}
+
+/* hero banner layout */
+.hero-banner{background:var(--color-primary-dark);color:var(--color-cta-contrast);padding:72px 0}
+.hero-inner{max-width:1200px;margin:0 auto;display:flex;gap:42px;padding:0 20px;align-items:center;overflow:hidden}
+.hero-text{flex:0 0 42%}
+.hero-text h1{font-size:52px;line-height:1.05;margin:0 0 14px}
+.hero-text p{margin:0;color:#e9f0ee;font-size:20px;line-height:1.6}
+
+/* Force static hero text: ensure text is always visible and not switched by radios */
+.hero-text .text-block{display:block !important;opacity:1 !important;transform:none !important;transition:none !important;margin-top:6px}
+
+/* Clean, minimal CSS for hero + 2-slide slider */
+*{box-sizing:border-box}
+html,body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7fbf7;color:#222;font-size:16px}
+html,body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--color-bg);color:#222;font-size:16px}
+
+/* When the mobile nav is open we add .nav-open to the <html> element.
+  Prevent scrolling of the page content while the off-canvas panel is open. */
+html.nav-open, html.nav-open body{height:100%;overflow:hidden;touch-action:none}
+img{max-width:100%;height:auto;display:block}
+
+/* container */
+.container{max-width:1200px;margin:32px auto;padding:0 16px}
+
+/* navbar (repeat block for safety) */
+.navbar{background:var(--color-primary);color:#fff}
+.navbar .container-fluid{max-width:1200px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.navbar-brand{color:#fff;text-decoration:none;font-weight:800;font-size:20px}
+.navbar a{color:#fff;text-decoration:none;font-weight:700;font-size:16px}
+.navbar-nav{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
+.navbar-nav .nav-item{margin:0}
+.navbar-nav .nav-link{color:inherit;padding:6px 8px;border-radius:6px}
+.navbar-nav .nav-link:hover,.navbar-nav .nav-link:focus{background:rgba(255,255,255,0.06);outline:none}
+.navbar-toggler{display:none}
+
+/* Perfil en el navbar: miniatura e identidad */
+.nav-profile{display:flex;align-items:center;gap:8px}
+.nav-profile img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.14);box-shadow:0 2px 6px rgba(0,0,0,0.12)}
+
+/* Residentes: grid de tarjetas */
+.resident-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+.resident-card{
+  background:linear-gradient(180deg,var(--color-surface) 0%, #fbfdfb 100%);
+  border:1px solid rgba(106,138,92,0.06); /* adjusted to match new primary */
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 8px 28px rgba(11,56,30,0.06);
+  display:flex;
+  flex-direction:column;
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.resident-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,56,30,0.12)}
+.resident-card .card-media img{width:100%;height:200px;object-fit:cover;display:block;background:linear-gradient(180deg,#f0f2f0,#e9efe6)}
+.resident-card .card-body{padding:18px;flex:1;display:flex;flex-direction:column}
+.resident-card h4{margin:0 0 8px;font-size:1.08rem;font-weight:700;color:var(--color-primary-dark)}
+.resident-card p{margin:6px 0;color:#334135;font-size:0.98rem;line-height:1.5}
+.resident-card p.muted{color:#6b7d6b;font-size:0.92rem}
+.resident-actions{margin-top:auto;display:flex;gap:8px}
+.btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;border:1px solid transparent;font-size:.95rem}
+.btn-primary{background:var(--color-primary);color:var(--color-cta-contrast);border:0}
+.btn-outline{background:transparent;border:1px solid var(--color-accent);color:var(--color-accent)}
+
+/* small accent label */
+.resident-badge{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(106,138,92,0.08);color:var(--color-primary-dark);font-weight:600;font-size:12px}
+
+@media (max-width:420px){
+  .resident-card .card-media img{height:120px}
+}
+
+/* Card estilo (similar a Bootstrap) */
+.card{background:#fff;border:1px solid #e9ecef;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 18px rgba(17,34,17,0.06)}
+.card-img-top{width:100%;height:200px;object-fit:cover;display:block;background:#f3f3f3}
+.card-body{padding:16px}
+.card-title{margin:0 0 6px;font-size:1.06rem;font-weight:700;color:#111}
+.card-text{margin:0 0 10px;color:#333}
+.card-footer{background:transparent;border-top:none;padding:12px;color:#6c757d;font-size:.95rem}
+.muted-small{color:#6c757d;font-size:.92rem}
+
+/* Ajustes visuales para botones dentro de tarjeta */
+.card .btn{margin-right:8px}
+.btn-link-green{display:inline-block;padding:0;margin:0;border:0;background:transparent;color:#138a3e;font-weight:600;text-decoration:none}
+.btn-link-green:hover{color:#0e672b;text-decoration:underline}
+.nav-profile .nav-user{color:#fff;font-weight:700;white-space:nowrap}
+.nav-profile:hover img{transform:scale(1.03)}
+
+/* hero */
+.hero-banner{background:var(--color-primary-dark);color:var(--color-cta-contrast);padding:56px 0}
+.hero-inner{max-width:1200px;margin:0 auto;display:flex;gap:36px;padding:0 16px;align-items:center;overflow:hidden}
+.hero-text{flex:0 0 42%}
+.hero-text h1{font-size:42px;line-height:1.05;margin:0 0 12px}
+.hero-text p{margin:0;color:#e9f0ee;font-size:18px;line-height:1.6}
+
+/* CTA */
+.hero-cta{margin-top:18px}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700}
+.btn-primary{background:var(--color-primary);color:var(--color-cta-contrast);border:0}
+.btn-outline{background:transparent;color:var(--color-cta-contrast);border:2px solid rgba(255,255,255,0.18)}
+
+/* hide radios visually */
+.hero-inner input[name="slider"]{position:absolute;opacity:0}
+
+/* text always static */
+.hero-text .text-block{display:block}
+
+/* slider (3 slides) */
+.hero-slide{flex:0 0 58%;position:relative;overflow:hidden;min-height:460px;border-radius:16px;box-shadow:0 18px 60px rgba(0,0,0,0.12)}
+.hero-slide .slides{display:flex;transition:transform .55s ease;width:300%;will-change:transform}
+.hero-slide .slide{flex:0 0 33.3333%;width:33.3333%}
+.hero-slide img{width:100%;height:100%;object-fit:contain;border-radius:0;box-shadow:none;background:#f3f3f3}
+
+/* radio-controlled movement for 3 slides */
+#s1:checked ~ .hero-slide .slides{transform:translateX(0%)}
+#s2:checked ~ .hero-slide .slides{transform:translateX(-33.3333%)}
+#s3:checked ~ .hero-slide .slides{transform:translateX(-66.6666%)}
+
+/* indicators centered */
+.controls{position:absolute;left:50%;transform:translateX(-50%);bottom:18px;display:flex;gap:12px}
+.indicator{width:14px;height:14px;border-radius:50%;background:#cfead1;cursor:pointer;border:2px solid rgba(255,255,255,0.06)}
+/* NOTE: overlay gradients are just CSS; adjust heights/opacities as desired */
+/* soft white blur overlays at top and bottom to hide white bars and soften edges */
+.hero-slide::before,
+.hero-slide::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:120px;
+  pointer-events:none;
+  border-radius:16px;
+  filter:blur(18px);
+  z-index:2;
+}
+.hero-slide::before{
+  top:0;
+  background:linear-gradient(to bottom, rgba(255,255,255,0.98), rgba(255,255,255,0.0));
+}
+.hero-slide::after{
+  bottom:0;
+  background:linear-gradient(to top, rgba(255,255,255,0.98), rgba(255,255,255,0.0));
+}
+
+/* ensure slides and images sit below overlays while controls stay above */
+.hero-slide .slides{position:relative;z-index:1}
+.hero-slide .slide img{position:relative;z-index:0}
+.controls{z-index:3}
+#s1:checked ~ .hero-slide .controls label[for="s1"]{background:#fff}
+#s2:checked ~ .hero-slide .controls label[for="s2"]{background:#fff}
+#s3:checked ~ .hero-slide .controls label[for="s3"]{background:#fff}
+
+/* nav arrows (optional selectors left for future use) */
+.nav label{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;background:rgba(0,0,0,0.35);color:#fff;display:none;align-items:center;justify-content:center;border-radius:50%;cursor:pointer;font-size:1.2rem}
+.nav .prev{left:10px}
+.nav .next{right:10px}
+#s1:checked ~ .hero-slide .nav .p1,#s1:checked ~ .hero-slide .nav .n1{display:flex}
+#s2:checked ~ .hero-slide .nav .p2,#s2:checked ~ .hero-slide .nav .n2{display:flex}
+#s3:checked ~ .hero-slide .nav .p3,#s3:checked ~ .hero-slide .nav .n3{display:flex}
+
+@media (max-width:900px){
+  .hero-inner{flex-direction:column-reverse;align-items:flex-start;padding:0 12px}
+  .hero-text{width:100%;margin-top:18px}
+  .hero-text h1{font-size:34px}
+  .hero-slide{min-height:360px}
+  .hero-slide img{height:320px;object-fit:cover}
+  /* make navbar stack on small screens */
+  .navbar .container-fluid{flex-direction:column;align-items:flex-start;padding:10px}
+  .navbar-nav{flex-direction:column;gap:8px;width:100%;margin-top:10px}
+  .navbar-nav .nav-link{display:block;width:100%;padding:10px 0}
+  /* smaller logo on mobile */
+  .navbar-logo{width:40px;height:40px}
+}
+
+/* small utility */
+.muted{color:#6b7d6b}
+
+/* ---- Servicios page styles ---- */
+.page-hero.small-hero{background:linear-gradient(180deg, #eaf6ea 0%, #ffffff 100%);padding:44px 0;border-radius:10px;margin:20px 0}
+.page-hero.small-hero h1{font-size:40px;margin:0 0 6px}
+.page-hero.small-hero .lead{max-width:820px;margin:10px auto 0;color:#3f5f49;font-size:20px}
+
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:20px;margin-bottom:40px}
+.service-card{background:#fff;border-radius:12px;box-shadow:0 10px 26px rgba(17,34,17,0.08);overflow:hidden;display:flex;flex-direction:column}
+.card-media img{width:100%;height:200px;object-fit:cover;display:block}
+.card-body{padding:20px;display:flex;flex-direction:column;gap:12px}
+.service-card h3{margin:0;color:var(--color-primary-dark);font-size:20px;font-weight:700}
+.service-card p{margin:0;color:#556b57;line-height:1.6;font-size:16px}
+.service-card .btn{margin-top:auto;align-self:flex-start;padding:8px 12px;border-radius:8px}
+
+@media (max-width:600px){
+  .page-hero.small-hero{padding:20px;margin:12px}
+  .page-hero.small-hero h1{font-size:28px}
+  .page-hero.small-hero .lead{font-size:16px}
+  .service-card{padding:18px}
+  .service-card .icon .service-img{width:64px;height:64px}
+  .service-card h3{font-size:18px}
+  .service-card p{font-size:15px}
+}
+
+/* ---- Productos / Catálogo ---- */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:20px;margin-bottom:44px}
+.product-card{background:#fff;border-radius:12px;box-shadow:0 12px 28px rgba(17,34,17,0.08);overflow:hidden;display:flex;flex-direction:column}
+.product-media img{width:100%;height:180px;object-fit:cover;display:block}
+.product-body{padding:18px;display:flex;flex-direction:column;gap:10px}
+.product-body h3{margin:0;color:var(--color-primary-dark);font-size:18px}
+.product-body .muted{font-size:14px;color:#617061}
+.product-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px}
+.product-price{font-weight:800;color:var(--color-primary-dark)}
+.product-actions{display:flex;gap:10px}
+.product-actions .btn{padding:8px 12px;border-radius:8px}
+
+/* simple modal styles */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:9999;padding:20px}
+.modal[aria-hidden="false"]{display:flex}
+.modal-dialog{background:#fff;border-radius:10px;padding:18px;max-width:520px;width:100%;box-shadow:0 18px 48px rgba(0,0,0,0.28)}
+.modal-close{position:absolute;right:28px;top:22px;background:transparent;border:0;font-size:26px;cursor:pointer}
+.modal form input,.modal form textarea{width:100%;padding:8px;border:1px solid #e3e6e3;border-radius:8px;margin-top:6px}
+.modal form label{display:block;font-weight:700;margin-top:10px}
+
+/* Register modal specific styles */
+.modal-dialog{max-width:520px}
+.modal-header-center{text-align:center;padding-bottom:6px}
+.modal-header-center h2{margin:0;font-size:24px;color:#233b2b}
+.modal form input::placeholder{color:#9aa79a}
+.input-with-toggle{position:relative}
+.pwd-toggle{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:#6b7d6b;cursor:pointer;font-size:16px}
+
+/* Buttons used in registration modal */
+.btn-register{background:var(--color-primary);color:var(--color-cta-contrast);border:0;padding:10px 18px;border-radius:8px;font-weight:700}
+.btn-register:hover{background:var(--color-primary-dark)}
+.btn-cancel{background:transparent;border:2px solid #1ea7ff;color:#1ea7ff;padding:8px 16px;border-radius:8px;font-weight:700}
+.btn-cancel:hover{background:rgba(30,167,255,0.06)}
+
+/* Layout for modal actions */
+.modal-actions{display:flex;gap:12px;justify-content:flex-start;align-items:center;margin-top:12px}
+@media (max-width:480px){
+  .modal-actions{flex-direction:column;align-items:stretch}
+  .btn-register,.btn-cancel{width:100%}
+}
+
+@media (max-width:600px){
+  .product-media img{height:150px}
+  .modal-dialog{padding:14px}
+  /* versión pequeña de la miniatura en móvil */
+  .nav-profile img{width:28px;height:28px}
+}
+
+/* Mobile navbar toggle and collapse behaviour */
+@media (max-width:899px){
+  /* show hamburger */
+  .navbar-toggler{display:flex;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:0;color:#fff;cursor:pointer}
+  .navbar-toggler:focus{outline:3px solid rgba(255,255,255,0.08);border-radius:6px}
+  /* simple 3-bar icon */
+  .navbar-toggler-icon{display:inline-block;width:18px;height:2px;background:#fff;position:relative}
+  .navbar-toggler-icon::before,.navbar-toggler-icon::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff;transition:transform .22s ease}
+  .navbar-toggler-icon::before{top:-6px}
+  .navbar-toggler-icon::after{top:6px}
+
+  /* collapse as off-canvas panel on mobile: hidden off-screen, slides in from right when .open */
+  .navbar .collapse{
+    /* keep it in the flow for desktop, on mobile behave as fixed panel */
+    display:flex;flex-direction:column;padding:18px 16px;gap:12px;
+    width:min(360px,92vw);
+    position:fixed;top:0;right:0;bottom:0;transform:translateX(100%);
+    transition:transform .34s cubic-bezier(.2,.9,.2,1);
+    z-index:1200;overflow:auto;padding-top:72px;
+    /* fallback background in case backdrop-filter unsupported */
+    background:rgba(17,50,28,0.92);
+    border-left:1px solid rgba(0,0,0,0.06);
+  }
+
+  /* overlay under the panel when open - base state (transparent) with transitions */
+  .navbar::before{
+    content:"";
+    position:fixed;inset:0;
+    background:rgba(0,0,0,0);
+    z-index:1190;
+    pointer-events:none;
+    opacity:0;
+    transition:background .28s ease, opacity .28s ease;
+  }
+
+  /* slide in when open and enable pointer events on overlay */
+  .navbar.open .collapse{transform:translateX(0)}
+  .navbar.open::before{background:rgba(0,0,0,0.36);opacity:1;pointer-events:auto}
+
+  /* frosted glass where supported */
+  @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .navbar .collapse{
+      background: rgba(17,50,28,0.32);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border-left:1px solid rgba(255,255,255,0.04);
+    }
+    .navbar.open::before{background:rgba(0,0,0,0.28);opacity:1}
+  }
+
+  .navbar.open .navbar-nav{flex-direction:column;gap:18px;align-items:flex-start}
+  .navbar.open .nav-link{display:block;padding:12px 8px;font-size:18px}
+
+  /* animate hamburger to X when open */
+  .navbar.open .navbar-toggler-icon{background:transparent}
+  .navbar.open .navbar-toggler-icon::before{transform:translateY(6px) rotate(45deg)}
+  .navbar.open .navbar-toggler-icon::after{transform:translateY(-6px) rotate(-45deg)}
+}
+
+/* Move hamburger to top-right on mobile and style as rounded button */
+@media (max-width:899px){
+  .navbar .container-fluid{position:relative}
+  .navbar-toggler{
+    position:absolute;
+    right:12px;
+    top:12px;
+    transform:none;
+    width:48px;height:48px;border-radius:10px;
+    background:rgba(0,0,0,0.12);color:#fff;align-items:center;justify-content:center;display:flex;z-index:1200;border:1px solid rgba(255,255,255,0.06);
+    box-shadow:0 8px 18px rgba(0,0,0,0.12);
+  }
+  /* add a little left padding to the brand so the logo isn't too close to the edge */
+  .navbar-brand{padding-left:8px}
+}
+
+  /* Auth area: show desktop version in header, mobile version inside collapsed menu */
+  .nav-auth-desktop{display:flex;align-items:center;gap:12px}
+  .nav-auth-mobile{display:flex;flex-direction:column;gap:12px}
+
+  @media (max-width:899px){
+    .nav-auth-desktop{display:none}
+    .nav-auth-mobile{display:flex}
+  }
+  @media (min-width:900px){
+    .nav-auth-desktop{display:flex}
+    .nav-auth-mobile{display:none}
+  }
+
+  /* Styling for injected auth content (avatar + greeting) */
+  .nav-auth-desktop .nav-link.nav-profile,
+  .nav-auth-mobile .nav-link.nav-profile{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:8px}
+  .nav-auth-desktop .nav-link.nav-profile img,
+  .nav-auth-mobile .nav-link.nav-profile img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(0,0,0,0.12);box-shadow:0 4px 10px rgba(0,0,0,0.12)}
+  .nav-auth-desktop .nav-user{color:#fff;font-weight:700}
+  .nav-auth-mobile .nav-user{color:#fff}
+  .nav-auth-desktop .nav-link,.nav-auth-mobile .nav-link{color:#fff}
+
+/* If a generic .modal-close is present inside the navbar (some pages add it),
+   pin it to the top-right to match the hamburger position and make it prominent. */
+@media (max-width:899px){
+  .navbar{position:relative}
+  .navbar .modal-close{
+    position:absolute;
+    right:12px;
+    top:12px;
+    z-index:1250;
+    background:rgba(0,0,0,0.16);
+    color:#fff;
+    width:44px;
+    height:44px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.12);
+    border:0;
+    cursor:pointer;
+  }
+  /* ensure it sits above the opened collapse panel */
+  .navbar.open .modal-close{z-index:1300}
+
+  /* On small screens hide the navbar-top close and show one inside the off-canvas panel */
+  .navbar > .modal-close{display:none}
+  .navbar .collapse .modal-close{
+    display:flex;position:absolute;right:12px;top:12px;z-index:1251;background:rgba(255,255,255,0.06);color:#fff;width:44px;height:44px;border-radius:10px;border:0;align-items:center;justify-content:center;font-size:22px;box-shadow:0 8px 18px rgba(0,0,0,0.12);cursor:pointer
+  }
+}
+
+/* Row-style product list like the example (left image circle, right info) */
+.products-list{display:grid;grid-template-columns:repeat(1,1fr);gap:18px;margin-top:18px}
+.product-row{display:flex;gap:18px;align-items:center;background:#fff;padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(17,34,17,0.06)}
+.product-thumb{flex:0 0 120px;display:flex;align-items:center;justify-content:center}
+.product-thumb img{width:96px;height:96px;object-fit:cover;border-radius:50%;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+.product-info{flex:1;display:flex;flex-direction:column;gap:8px}
+.product-info h3{margin:0;font-size:20px;color:#233b2b}
+.product-info .muted{color:#6b7d6b}
+.price-row{display:flex;align-items:center;gap:10px;margin-top:6px}
+.price-old{color:#8b8b8b;text-decoration:line-through}
+.price-sale{color:#e53935;font-weight:800}
+.actions-row{margin-top:8px;display:flex;gap:10px}
+.btn-outline{background:transparent;color:#0b7a44;border:1px solid #cfdccc;padding:8px 12px;border-radius:8px}
+.btn-buy{background:var(--color-primary);color:var(--color-cta-contrast);border:0;padding:8px 12px;border-radius:8px}
+.btn-buy:hover{background:var(--color-primary-dark);transform:translateY(-1px)}
+
+/* Estilos para el menú de filtros en productos */
+.products-menu .btn-outline{color:#23492f;border-color:#dbeede}
+.product-filter.active{background:#0b7a44;color:#fff;border-color:#0b7a44}
+.product-filter:focus{outline:3px solid rgba(11,122,68,0.18)}
+
+/* Buscador en productos */
+#product-search{padding:8px 10px;border-radius:8px;border:1px solid #dfeee0;width:100%}
+#product-search:focus{outline:3px solid rgba(11,122,68,0.12)}
+.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;margin:0;padding:0}
+
+@media (min-width:700px){
+  .products-list{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .product-row{flex-direction:row;align-items:flex-start}
+}
+@media (max-width:600px){
+  .product-row{flex-direction:column;align-items:flex-start}
+  .product-thumb{flex:0 0 auto}
+}
+
+/* ---- Footer site-wide styles (new) ---- */
+.site-footer{background:#2b473f;color:#dfe6dc;padding:44px 0;border-top:1px solid rgba(0,0,0,0.08)}
+.site-footer .footer-inner{max-width:1180px;margin:0 auto;padding:0 20px}
+.site-footer .footer-grid{display:grid;grid-template-columns:1.4fr 0.7fr 0.7fr 0.9fr;gap:36px;align-items:start}
+.site-footer .footer-col{min-width:160px}
+.site-footer .footer-brand h3{color:#e8f6ea;margin:0 0 10px;font-size:18px}
+.site-footer .footer-brand p{color:#d6eadd;line-height:1.7;margin:0;max-width:480px}
+.site-footer .footer-links h4,.site-footer .footer-services h4,.site-footer .footer-contact h4{color:#e8f6ea;margin:0 0 10px;font-size:15px}
+.site-footer a{color:#dfe6dc;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+.site-footer .footer-sitemap-panel{background:#274235;padding:12px;border-radius:8px}
+.site-footer .social a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.03);color:#eaf6ea;margin-right:8px;text-decoration:none;font-weight:700}
+.site-footer .social a:hover{background:rgba(255,255,255,0.06)}
+.site-footer hr{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:18px 0 10px}
+.site-footer .footer-bottom{color:#cbd9cc;padding:12px 0;font-size:13px}
+
+@media (max-width:980px){
+  .site-footer .footer-grid{grid-template-columns:1fr 1fr;gap:22px}
+  .site-footer .footer-brand p{max-width:none}
+}
+@media (max-width:520px){
+  .site-footer .footer-grid{grid-template-columns:1fr;gap:18px}
+  .site-footer .social a{width:32px;height:32px}
+}
+
+/* Hide any star/rating visuals */
+.product-row .rating, .product-row .stars, .product-card .rating{display:none !important}
+
+/* ---- Sticky header ----
+   Make header fixed only on larger screens. On small screens the navbar
+   should be in normal flow so the expanded mobile menu pushes content down
+   instead of covering it. This avoids the mobile menu overlapping page content.
+*/
+@media (min-width:900px){
+  .navbar{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:1100;
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  }
+  /* adjust this if your navbar height changes */
+  body{padding-top:80px}
+
+  /* background band behind fixed header to avoid a hairline gap */
+  body::before{
+    content:"";
+    position:fixed;
+    top:0;left:0;right:0;
+    height:80px; /* coincide con body padding-top */
+    background:var(--color-primary); /* mismo color que .navbar */
+    z-index:1098; /* por debajo de .navbar (1100) pero encima del contenido */
+    pointer-events:none;
+  }
+}
+
+/* On small screens keep navbar in normal flow so menus push content down */
+@media (max-width:899px){
+  .navbar{position:relative;box-shadow:none}
+  body{padding-top:0}
+  body::before{display:none}
+}
+
+/* Utility helpers (reemplazo de estilos inline) */
+.ml-auto{margin-left:auto}
+.ml-8{margin-left:8px}
+.gap-8{gap:8px}
+.gap-10{gap:10px}
+.gap-12{gap:12px}
+.flex{display:flex}
+.align-center{align-items:center}
+.flex-wrap{flex-wrap:wrap}
+.inline-block{display:inline-block}
+.min-w-220{min-width:220px}
+.flex-none{flex:0 0 auto}
+.text-center{text-align:center}
+.panel-white{background:#fff;padding:24px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
+.thumb-box{width:72px;height:72px;border-radius:8px;overflow:hidden;background:#f6f8f6;display:flex;align-items:center;justify-content:center}
+.muted-small{color:#6b7d6b;font-size:14px}
+.buttons-row{margin-top:12px;display:flex;gap:10px}
+.footer-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+.contact-line{margin:6px 0}
+.form-inline{display:inline-block}
+.flex-1{flex:1}
+
+/* Productos menu specific */
+.products-menu{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+.products-menu .search-wrap{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.products-menu .search-right{margin-left:auto;min-width:220px;flex:0 0 auto}
+/* Perfil page: header and info grid responsive helpers */
+.profile-header{display:flex;gap:18px;align-items:center;margin:18px 0}
+.profile-avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid #eee;flex:0 0 auto}
+.profile-meta{display:block}
+.profile-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.profile-info-full{grid-column:1 / -1}
+
+/* Small spacing utilities used by legacy pages to replace inline styles */
+.mt-12{margin-top:12px}
+.mt-18{margin-top:18px}
+.mb-8{margin-bottom:8px}
+
+@media (max-width:700px){
+  .profile-header{flex-direction:column;align-items:center;text-align:center}
+  .profile-avatar{width:84px;height:84px}
+  .profile-info-grid{grid-template-columns:1fr}
+  .resident-grid{grid-template-columns:1fr}
+  .resident-card .card-media img{height:140px}
+}
+
+@media (max-width:420px){
+  .profile-avatar{width:72px;height:72px}
+  .resident-card .card-media img{height:120px}
+  .card-body{padding:10px}
+}
+
+/* Dropdown submenu styles (estilo verde, animación y adaptabilidad móvil) */
+.nav-item.dropdown{position:relative}
+.nav-link.dropdown-toggle{display:inline-flex;align-items:center;gap:8px}
+.dropdown-caret{display:inline-block;width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);margin-left:6px}
+.dropdown-menu{position:absolute;top:100%;left:0;min-width:220px;padding:8px;border-radius:10px;background:#0b7a44;color:#fff;box-shadow:0 10px 30px rgba(11,122,68,0.12);transform-origin:top center;transform:translateY(-8px) scale(.98);opacity:0;pointer-events:none;transition:transform .22s cubic-bezier(.2,.9,.2,1),opacity .18s ease}
+.dropdown-menu.show{transform:translateY(0) scale(1);opacity:1;pointer-events:auto}
+.dropdown-item{color:#fff;padding:8px 12px;border-radius:6px;display:block;text-decoration:none}
+.dropdown-item:hover,.dropdown-item:focus{background:rgba(255,255,255,0.06);outline:none}
+
+/* Mobile: make dropdown items flow inside collapsed nav */
+@media (max-width:899px){
+    .dropdown-menu{position:static;transform:none;opacity:1;pointer-events:auto;background:transparent;padding:0;box-shadow:none}
+    .nav-item.dropdown > .dropdown-item{padding:10px 0}
+    .dropdown-caret{display:none}
+}
+
+/* Small accessibility helper: focus state */
+.nav-link:focus,.dropdown-item:focus{outline:2px solid rgba(255,255,255,0.12);outline-offset:2px}
+
+/* Desktop: show submenu on hover/focus (like the example provided) */
+@media (min-width:900px){
+  .navbar-nav .nav-item.dropdown:hover > .dropdown-menu,
+  .navbar-nav .nav-item.dropdown:focus-within > .dropdown-menu{
+    transform:translateY(0) scale(1);
+    opacity:1;
+    pointer-events:auto;
+  }
+}
